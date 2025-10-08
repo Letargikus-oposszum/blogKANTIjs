@@ -1,8 +1,8 @@
 import express from 'express'
 import bcrypt from 'bcrypt'
 import cors from 'cors'
-import postRoutes from "./routers/postRoutes.js"
-import userRoutes from "./routers/userRoutes.js"
+import postRoutes from "../routes/postRoutes.js"
+import userRoutes from "../routes/userRoutes.js"
 
 const PORT = 3000;
 

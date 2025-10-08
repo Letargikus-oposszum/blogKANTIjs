@@ -1,11 +1,31 @@
 import express from 'express'
+import * as User from '../data/user.js';
 
-const router = express.Router();
+const userRoutes = express.Router();
 
-router.get("/", (req,res)=>{
-    res.send("Users");
+userRoutes.get("/", (req, res) => {
+  const users = User.getUsers();
+  res.json(users);
 });
 
+// userRoutes.get("/users", (req, res) => {
+//   const users = db.getUsers();
+//   res.json(users);
+// });
 
+// userRoutes.get("/users", (req, res) => {
+//   const users = db.getUsers();
+//   res.json(users);
+// });
 
-export default router;
+// userRoutes.get("/users", (req, res) => {
+//   const users = db.getUsers();
+//   res.json(users);
+// });
+
+// userRoutes.get("/users", (req, res) => {
+//   const users = db.getUsers();
+//   res.json(users);
+// });
+
+export default userRoutes;

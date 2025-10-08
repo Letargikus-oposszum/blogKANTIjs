@@ -7,7 +7,7 @@ db.prepare(`CREATE TABLE IF NOT EXISTS users(
     password STRING 
     )`).run();
 
-export const getUsers = () => db.prepare("SELECT * FROM users").get();
+export const getUsers = () => db.prepare("SELECT * FROM users").all();
 export const getUserById = (id) =>
   db.prepare(`SELECT * FROM users WHERE id = ${id}`).get(id);
 export const saveUser = (name, email, password) =>

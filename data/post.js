@@ -8,7 +8,7 @@ db.prepare(`CREATE TABLE IF NOT EXISTS posts(
     FOREIGN KEY (userId) REFERENCES users(id)
     )`).run();
 
-export const getPosts = () => db.prepare("SELECT * FROM posts").get();
+export const getPosts = () => db.prepare("SELECT * FROM posts").all();
 export const getPostById = (id) =>
   db.prepare(`SELECT * FROM posts WHERE id = ${id}`).get(id);
 export const savePost = (userId, title, content) =>

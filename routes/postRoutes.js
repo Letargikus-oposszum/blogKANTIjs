@@ -1,11 +1,33 @@
 import express from 'express'
+import * as Post from '../data/post.js';
 
-const router = express.Router();
+const postRoutes = express.Router();
 
-router.get("/users", (req, res) => {
-  const users = db.getUsers();
+
+postRoutes.get("/", (req, res) => {
+  const users = Post.getPosts();
   res.json(users);
 });
 
+// postRoutes.get("/posts", (req, res) => {
+//   const users = db.getPosts();
+//   res.json(users);
+// });
 
-export default router;
+// postRoutes.get("/posts", (req, res) => {
+//   const users = db.getPosts();
+//   res.json(users);
+// });
+
+// postRoutes.get("/posts", (req, res) => {
+//   const users = db.getPosts();
+//   res.json(users);
+// });
+
+// postRoutes.get("/posts", (req, res) => {
+//   const users = db.getPosts();
+//   res.json(users);
+// });
+
+
+export default postRoutes;
