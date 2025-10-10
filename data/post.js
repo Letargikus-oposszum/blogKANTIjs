@@ -10,14 +10,14 @@ db.prepare(`CREATE TABLE IF NOT EXISTS posts(
 
 export const getPosts = () => db.prepare("SELECT * FROM posts").all();
 export const getPostById = (id) =>
-  db.prepare(`SELECT * FROM posts WHERE id = ${id}`).get(id);
+  db.prepare(`SELECT * FROM posts WHERE id = ?`).get(id);
 export const savePost = (userId, title, content) =>
   db
-    .prepare(`INSERT INTO posts (userId = ?, title = ?, content = ?), values = (?,?,?)`)
+    .prepare(`INSERT INTO posts (userId, title, content) values = (?,?,?)`)
     .run(userId, title, content);
-export const updatePost = (id, userId, title, content) =>
+export const updatePost = (userId, title, content,id) =>
   db
-    .prepare(`UPDATE posts (SET userId = ?, title = ?, content = ?), WHERE id = ${id}`)
-    .run(id, userId, title, content);
+    .prepare(`UPDATE posts SET userId = ?, title = ?, content = ? WHERE id =? `)
+    .run(userId, title, content,id);
 export const deletePost = (id) =>
-  db.prepare(`DELETE FROM posts WHERE id = ${id}`).run(id);
+  db.prepare(`DELETE FROM posts WHERE id = ?`).run(id);
