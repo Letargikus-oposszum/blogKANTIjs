@@ -1,10 +1,10 @@
 import express from 'express'
-import bcrypt from 'bcrypt'
 import cors from 'cors'
 import postRoutes from "../routes/postRoutes.js"
 import userRoutes from "../routes/userRoutes.js"
+import "dotenv/config";
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 const app = express();
 
